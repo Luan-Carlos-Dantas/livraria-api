@@ -1,0 +1,35 @@
+GET http://localhost:8000
+
+###
+
+GET http://localhost:8000/livros
+
+###
+
+POST http://localhost:8000/livros
+Content-Type: application/json
+Accept-Language: pt
+
+ {
+    "id": 20,
+    "title": "Introdução à JAVA",
+    "description": "Descubra os segredos da linguagem de programação JAVA"
+}
+
+###
+GET http://localhost:8000/livros/2
+
+
+###
+PUT http://localhost:8000/livros/2
+Content-Type: application/json
+Accept-Language: pt
+
+ {
+    "title": "Introdução à JAVASCRIPT",
+    "description": "Descubra os segredos da linguagem de programação JAVASCRIPT"
+}
+
+###
+
+DELETE http://localhost:8000/livros/2
