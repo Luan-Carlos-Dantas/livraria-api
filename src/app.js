@@ -1,5 +1,6 @@
 import express from 'express'
 import dbConnection from './config/dbConnect.js';
+import livro from './models/Livro.js';
 
 const connection = await dbConnection()
 
@@ -22,11 +23,13 @@ function buscaLivro(id){
 }
 
 app.get('/', (req,res)=>{
+
   res.status(200).send('Olá Mundo')
 })
 
-app.get('/livros', (req,res)=>{
-  res.status(200).json(jsonLivros)
+app.get('/livros', async (req,res)=>{
+  const listaLivros = await livro.find({});
+  res.status(200).json(listaLivros)
 })
 
 app.post('/livros', (req,res)=>{
