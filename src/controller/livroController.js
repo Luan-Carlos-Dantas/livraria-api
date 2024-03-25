@@ -15,6 +15,38 @@ class LivroController {
     }
   }
 
+  static async listarLivro(req,res){
+
+    const id = req.params.id
+
+    try{
+      const listaLivro = await livro.findById(id)
+
+      return res.status(200).json(listaLivro)
+    }catch(erro){
+      res
+      .status(500)
+      .json({ message: `${erro.message} - Falha ao listar o livro` });
+    }
+
+  }
+
+  static async buscaLivros(req, res){
+    const editora = req.query.editora
+
+    try{
+      const listaLivroEncontrado = await livro.find({
+        editor: editora
+      })
+
+      return res.status(200).send(listaLivroEncontrado)
+    }catch(error){
+      res
+      .status(500)
+      .json({ message: `${erro.message} - Falha ao listar o livro` });
+    }
+  }
+
   static async criarLivros(req,res){
     const novoLivro = (req.body)
 
@@ -37,21 +69,6 @@ class LivroController {
       .status(500)
       .json({ message: `${erro.message} - Falha ao cadastrar um novo livro` });
     }
-  }
-
-  static async listarLivro(req,res){
-    const id = req.params.id
-
-    try{
-      const listaLivro = await livro.findById(id)
-
-      return res.status(200).json(listaLivro)
-    }catch(erro){
-      res
-      .status(500)
-      .json({ message: `${erro.message} - Falha ao listar o livro` });
-    }
-
   }
 
   static async atualizaLivro(req,res){

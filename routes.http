@@ -44,6 +44,10 @@ GET http://localhost:8000/livros/6600c88fbbf4098b5a575274
 
 ###
 
+GET http://localhost:8000/livros/busca?editora=Arqueiro
+
+###
+
 GET http://localhost:8000/autores/6600c41e7d34d6e6ce254eed
 
 
