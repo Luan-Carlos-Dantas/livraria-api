@@ -6,9 +6,6 @@ GET http://localhost:8000/livros
 
 ###
 
-GET http://localhost:8000/autores
-
-###
 POST http://localhost:8000/livros
 Content-Type: application/json
 Accept-Language: pt
@@ -29,15 +26,6 @@ Accept-Language: pt
 }
 ###
 
-POST http://localhost:8000/autores
-Content-Type: application/json
-Accept-Language: pt
-
-{
-    "name": "",
-    "nacionality": ""
-}
-###
 
 GET http://localhost:8000/livros/6600c88fbbf4098b5a575274
 
@@ -48,11 +36,7 @@ GET http://localhost:8000/livros/busca?editora=Arqueiro
 
 ###
 
-GET http://localhost:8000/autores/6600c41e7d34d6e6ce254eed
-
-
-###
-PUT http://localhost:8000/livros/6600c80ec06056c473a14b82
+PUT http://localhost:8000/livros/6600b85727c192795fdf1bbd
 Content-Type: application/json
 Accept-Language: pt
 
@@ -64,22 +48,11 @@ Accept-Language: pt
 #     "author": ""
 # }
 {
-    "title": "Pai Rico, Pai Pobre",
-    "editor": "Editora Campus",
-    "price": 49.9,
-    "pages": 200,
+    "title": "Livro de Teste de Inclusão",
+    "editor": "6600d74e3f1039cd1d612dc5",
+    "price": 99.99,
+    "pages": 1,
     "author": "6600c41e7d34d6e6ce254eed"
-}
-
-###
-
-PUT http://localhost:8000/autores/6600c41e7d34d6e6ce254eed
-Content-Type: application/json
-Accept-Language: pt
-
-{
-    "name": "",
-    "nacionality": ""
 }
 
 ###
@@ -87,5 +60,3 @@ Accept-Language: pt
 DELETE http://localhost:8000/livros/6600b88027c192795fdf1bc3
 
 ###
-
-DELETE http://localhost:8000/autores/6600c3f07d34d6e6ce254ee5

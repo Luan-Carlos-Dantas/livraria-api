@@ -1,0 +1,42 @@
+GET http://localhost:8000
+
+###
+
+GET http://localhost:8000/editora
+
+###
+
+POST http://localhost:8000/editora
+Content-Type: application/json
+Accept-Language: pt
+
+# {
+#     "name": "",
+# }
+{
+  "name": "Record"
+}
+###
+
+
+GET http://localhost:8000/editora/6600d66b3f1039cd1d612db7
+
+
+###
+
+GET http://localhost:8000/editora/busca?nome=Arqueiro
+
+###
+###
+PUT http://localhost:8000/editora/6600d66b3f1039cd1d612db7
+Content-Type: application/json
+Accept-Language: pt
+
+{
+    "name": "Livro & CIA"
+}
+
+###
+
+
+DELETE http://localhost:8000/editora/6600d6783f1039cd1d612db9

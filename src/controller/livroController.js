@@ -1,4 +1,5 @@
 import { autor } from '../models/Autores.js';
+import { editora } from '../models/Editora.js';
 import livro from '../models/Livro.js';
 
 class LivroController {
@@ -51,9 +52,13 @@ class LivroController {
     const novoLivro = (req.body)
 
     try{
+      const editoraEcontrada = await editora.findById(novoLivro.editor)
       const autorEncontrado = await autor.findById(novoLivro.author);
       const livroCompleto = {
         ...novoLivro,
+        editor:{
+          ...editoraEcontrada._doc
+        },
         author:{
           ...autorEncontrado._doc
         }
@@ -74,13 +79,18 @@ class LivroController {
   static async atualizaLivro(req,res){
     const novoLivro = req.body
     const idAutor = req.body.author
+    const idEditora = req.body.editor
     const idLivro = req.params.id
 
     try{
+      const editoraEncontrada = await editora.findById(idEditora)
       const autorEncontrado = await autor.findById(idAutor)
 
       const livroAtualizado = {
         ...novoLivro,
+        editor:{
+          ...editoraEncontrada._doc
+        },
         author: {
           ...autorEncontrado._doc
         }

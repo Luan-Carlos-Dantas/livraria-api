@@ -1,0 +1,35 @@
+GET http://localhost:8000
+
+###
+
+GET http://localhost:8000/autores
+
+###
+
+POST http://localhost:8000/autores
+Content-Type: application/json
+Accept-Language: pt
+
+{
+    "name": "",
+    "nacionality": ""
+}
+###
+
+GET http://localhost:8000/autores/6600c41e7d34d6e6ce254eed
+
+
+###
+
+PUT http://localhost:8000/autores/6600c41e7d34d6e6ce254eed
+Content-Type: application/json
+Accept-Language: pt
+
+{
+    "name": "",
+    "nacionality": ""
+}
+
+###
+
+DELETE http://localhost:8000/autores/6600c3f07d34d6e6ce254ee5
