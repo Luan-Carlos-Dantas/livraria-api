@@ -6,30 +6,82 @@ GET http://localhost:8000/livros
 
 ###
 
+GET http://localhost:8000/autores
+
+###
 POST http://localhost:8000/livros
 Content-Type: application/json
 Accept-Language: pt
 
- {
-    "id": 20,
-    "title": "Introdução à JAVA",
-    "description": "Descubra os segredos da linguagem de programação JAVA"
+# {
+#     "title": "",
+#     "editor": "",
+#     "price": 0.0,
+#     "pages": 0,
+#     "author": ""
+# }
+{
+    "title": "O Nome do Vento",
+    "editor": "Arqueiro",
+    "price": 64.90,
+    "pages": 656,
+    "author": "6600c41e7d34d6e6ce254eed"
 }
-
 ###
-GET http://localhost:8000/livros/2
 
-
-###
-PUT http://localhost:8000/livros/2
+POST http://localhost:8000/autores
 Content-Type: application/json
 Accept-Language: pt
 
- {
-    "title": "Introdução à JAVASCRIPT",
-    "description": "Descubra os segredos da linguagem de programação JAVASCRIPT"
+{
+    "name": "",
+    "nacionality": ""
+}
+###
+
+GET http://localhost:8000/livros/6600c88fbbf4098b5a575274
+
+
+###
+
+GET http://localhost:8000/autores/6600c41e7d34d6e6ce254eed
+
+
+###
+PUT http://localhost:8000/livros/6600c80ec06056c473a14b82
+Content-Type: application/json
+Accept-Language: pt
+
+# {
+#     "title": "",
+#     "editor": "",
+#     "price": 0.0,
+#     "pages": 0,
+#     "author": ""
+# }
+{
+    "title": "Pai Rico, Pai Pobre",
+    "editor": "Editora Campus",
+    "price": 49.9,
+    "pages": 200,
+    "author": "6600c41e7d34d6e6ce254eed"
 }
 
 ###
 
-DELETE http://localhost:8000/livros/2
+PUT http://localhost:8000/autores/6600c41e7d34d6e6ce254eed
+Content-Type: application/json
+Accept-Language: pt
+
+{
+    "name": "",
+    "nacionality": ""
+}
+
+###
+
+DELETE http://localhost:8000/livros/6600b88027c192795fdf1bc3
+
+###
+
+DELETE http://localhost:8000/autores/6600c3f07d34d6e6ce254ee5
