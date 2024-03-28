@@ -4,13 +4,13 @@ import { editoraSchema } from "./Editora.js";
 
 const livroSchema = new mongoose.Schema({
   id:{type: mongoose.Schema.Types.ObjectId},
-  title:{type: mongoose.Schema.Types.String, required: true},
+  title:{type: mongoose.Schema.Types.String, required: [true, "O nome do livro é obrigatório"]},
   editor: editoraSchema,
   price: {type: mongoose.Schema.Types.Number},
   pages: {type: mongoose.Schema.Types.Number},
   author: autorSchema
-}, {versionKey: false})
+}, {versionKey: false});
 
-const livro = mongoose.model('livros', livroSchema)
+const livro = mongoose.model("livros", livroSchema);
 
-export default livro
+export default livro;

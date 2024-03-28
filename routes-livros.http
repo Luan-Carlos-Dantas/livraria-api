@@ -19,7 +19,7 @@ Accept-Language: pt
 # }
 {
     "title": "O Nome do Vento",
-    "editor": "Arqueiro",
+    "editor": ,
     "price": 64.90,
     "pages": 656,
     "author": "6600c41e7d34d6e6ce254eed"
@@ -27,7 +27,7 @@ Accept-Language: pt
 ###
 
 
-GET http://localhost:8000/livros/6600c88fbbf4098b5a575274
+GET http://localhost:8000/livros/6600c88fbbf4098b5a57527z
 
 
 ###

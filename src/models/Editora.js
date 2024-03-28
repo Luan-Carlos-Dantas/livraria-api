@@ -2,9 +2,9 @@ import mongoose from "mongoose";
 
 const editoraSchema = new mongoose.Schema({
   id:{type: mongoose.Schema.Types.ObjectId},
-  name:{type: mongoose.Schema.Types.String, required:true}
-},{versionKey: false})
+  name:{type: mongoose.Schema.Types.String, required:[true, "O nome da editora é obrigatório"]}
+},{versionKey: false});
 
-const editora = mongoose.model('editora', editoraSchema)
+const editora = mongoose.model("editora", editoraSchema);
 
-export {editora, editoraSchema}
+export {editora, editoraSchema};

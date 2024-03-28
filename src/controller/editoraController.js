@@ -1,84 +1,84 @@
-import { editora, editoraSchema } from "../models/Editora.js";
+import { editora} from "../models/Editora.js";
 
 class EditoraController{
-  static async listaEditoras(req,res){
+  static async listaEditoras(req,res,next){
     try {
-      const listaEditoras = await editora.find({})
+      const listaEditoras = await editora.find({});
 
-      return res.status(200).json(listaEditoras)
+      return res.status(200).json(listaEditoras);
     } catch (error) {
-      res.status(500).json({message:`${error.message} - Falha na listagem das editoras`})
+      next(error);
     }
   }
 
-  static async buscaEditoraPeloNome(req,res){
-    const nomeEditora = req.query.nome
+  static async buscaEditoraPeloNome(req,res,next){
+    const nomeEditora = req.query.nome;
     try {
-      const listaEditora = await editora.find({name: nomeEditora})
+      const listaEditora = await editora.find({name: nomeEditora});
 
-      return res.status(200).json(listaEditora)
+      return res.status(200).json(listaEditora);
     } catch (error) {
-      res.status(500).json({message:`${error.message} - Falha na listagem da editora`})
+      next(error);
     }
   }
 
-  static async listaEditora(req,res){
-    const idProcurado = req.params.id
+  static async listaEditora(req,res,next){
+    const idProcurado = req.params.id;
     try {
-      const listaEditora = await editora.findById(idProcurado)
+      const listaEditora = await editora.findById(idProcurado);
 
-      return res.status(200).send(listaEditora)
+      return res.status(200).send(listaEditora);
     } catch (error) {
-      res.status(500).json({message:`${error.message} - Falha na listagem da editora`})
+      next(error);
     }
   }
 
-  static async cadastraEditora(req,res){
-    const editoraRecebida = req.body
+  static async cadastraEditora(req,res,next){
+    const editoraRecebida = req.body;
     try {
-      const novaEditora = await editora.create(editoraRecebida)
+      const novaEditora = await editora.create(editoraRecebida);
 
       return res.status(200).json(
         {
-          message:'Editora criada com sucesso',
+          message:"Editora criada com sucesso",
           novaEditora
         }
-      )
+      );
     } catch (error) {
-      res.status(500).json({message:`${error.message} - Falha na criação da nova editora`})
+      next(error);
     }
   }
 
-  static async atualizaEditora(req,res){
-    const idParaAtualizacao = req.params.id
-    const editoraAturalizada = req.body
+  static async atualizaEditora(req,res,next){
+    const idParaAtualizacao = req.params.id;
+    const editoraAturalizada = req.body;
     try {
 
-      await editora.findByIdAndUpdate(idParaAtualizacao, editoraAturalizada)
+      await editora.findByIdAndUpdate(idParaAtualizacao, editoraAturalizada);
       return res.status(200).json(
         {
-          message:'Editora atualizada com sucesso',
+          message:"Editora atualizada com sucesso",
         }
-      )
+      );
     } catch (error) {
-      res.status(500).json({message:`${error.message} - Falha na atualização da nova editora`})
+      next(error);
     }
   }
 
-  static async deletaEditora(req,res){
-    const idParaExclusao = req.params.id
+  static async deletaEditora(req,res,next){
+    const idParaExclusao = req.params.id;
     try {
 
-      await editora.findByIdAndDelete(idParaExclusao)
+      await editora.findByIdAndDelete(idParaExclusao);
       return res.status(204).json(
         {
-          message:'Editora deletada com sucesso',
+          message:"Editora deletada com sucesso",
         }
-      )
+      );
     } catch (error) {
-      res.status(500).json({message:`${error.message} - Falha na exclusão da editora`})
+      next(error);
     }
   }
 }
 
-export default EditoraController
+export default EditoraController;
