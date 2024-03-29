@@ -27,16 +27,15 @@ Accept-Language: pt
 ###
 
 
-GET http://localhost:8000/livros/6600c88fbbf4098b5a57527z
+GET http://localhost:8000/livros/6600b85727c192795fdf1bbd
 
 
 ###
-
-GET http://localhost:8000/livros/busca?editora=Arqueiro
+GET http://localhost:8000/livros/busca?editora=Caelum
 
 ###
 
-PUT http://localhost:8000/livros/6600b85727c192795fdf1bbd
+PUT http://localhost:8000/livros/65fcb7663a56d7a767010caa
 Content-Type: application/json
 Accept-Language: pt
 
@@ -57,6 +56,6 @@ Accept-Language: pt
 
 ###
 
-DELETE http://localhost:8000/livros/6600b88027c192795fdf1bc3
+DELETE http://localhost:8000/livros/6600b85727c192795fdf1bbd
 
 ###

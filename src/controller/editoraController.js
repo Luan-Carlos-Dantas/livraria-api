@@ -1,5 +1,5 @@
 import { editora} from "../models/Editora.js";
-
+import Erro404 from "../error/Erro404.js";
 class EditoraController{
   static async listaEditoras(req,res,next){
     try {
@@ -16,7 +16,13 @@ class EditoraController{
     try {
       const listaEditora = await editora.find({name: nomeEditora});
 
-      return res.status(200).json(listaEditora);
+      console.log(listaEditora);
+
+      if(listaEditora !== null || listaEditora !== ""){
+        return res.status(200).json(listaEditora);
+      }else{
+        next(new Erro404("Nome da editora não foi encontrado"));
+      }
     } catch (error) {
       next(error);
     }
@@ -27,7 +33,11 @@ class EditoraController{
     try {
       const listaEditora = await editora.findById(idProcurado);
 
-      return res.status(200).send(listaEditora);
+      if(listaEditora !== null){
+        return res.status(200).json(listaEditora);
+      }else{
+        next(new Erro404("ID da editora não foi encontrado"));
+      }
     } catch (error) {
       next(error);
     }
@@ -54,12 +64,17 @@ class EditoraController{
     const editoraAturalizada = req.body;
     try {
 
-      await editora.findByIdAndUpdate(idParaAtualizacao, editoraAturalizada);
-      return res.status(200).json(
-        {
-          message:"Editora atualizada com sucesso",
-        }
-      );
+      if(await editora.findById(idParaAtualizacao) !== null){
+        await editora.findByIdAndUpdate(idParaAtualizacao, editoraAturalizada);
+
+        return res.status(200).json(
+          {
+            message:"Editora atualizada com sucesso",
+          }
+        );
+      }else{
+        next(new Erro404("ID da editora não foi encontrado"));
+      }
     } catch (error) {
       next(error);
     }
@@ -69,12 +84,16 @@ class EditoraController{
     const idParaExclusao = req.params.id;
     try {
 
-      await editora.findByIdAndDelete(idParaExclusao);
-      return res.status(204).json(
-        {
-          message:"Editora deletada com sucesso",
-        }
-      );
+      if(await editora.findById(idParaExclusao) !== null){
+        await editora.findByIdAndDelete(idParaExclusao);
+        return res.status(204).json(
+          {
+            message:"Editora deletada com sucesso",
+          }
+        );
+      }else{
+        next(new Erro404("ID da editora não foi encontrado"));
+      }
     } catch (error) {
       next(error);
     }

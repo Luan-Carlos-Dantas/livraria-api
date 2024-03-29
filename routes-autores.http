@@ -15,20 +15,20 @@ Accept-Language: pt
 }
 ###
 
-GET http://localhost:8000/autores/6600c41e7d34d6e6ce254eed
+GET http://localhost:8000/autores/6600c41e7d34d6e6ce254eez
 
 
 ###
 
-PUT http://localhost:8000/autores/6600c41e7d34d6e6ce254eed
+PUT http://localhost:8000/autores/6600c4167d34d6e6ce254eeb
 Content-Type: application/json
 Accept-Language: pt
 
 {
-    "name": "",
-    "nacionality": "Brazilian"
+    "name": "Naruto Uzumaki",
+    "nacionality": "Japanese"
 }
 
 ###
 
-DELETE http://localhost:8000/autores/6600c3f07d34d6e6ce254ee5
+DELETE http://localhost:8000/autores/6600c4167d34d6e6ce254eeb

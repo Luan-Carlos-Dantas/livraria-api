@@ -19,16 +19,16 @@ Accept-Language: pt
 ###
 
 
-GET http://localhost:8000/editora/6600d66b3f1039cd1d612db7
+GET http://localhost:8000/editora/6600d76f3f1039cd1d612dcd
 
 
 ###
 
-GET http://localhost:8000/editora/busca?nome=Arqueiro
+GET http://localhost:8000/editora/busca?nome=Agi
 
 ###
 ###
-PUT http://localhost:8000/editora/6600d66b3f1039cd1d612db7
+PUT http://localhost:8000/editora/6600d76f3f1039cd1d612dcb
 Content-Type: application/json
 Accept-Language: pt
 
@@ -39,4 +39,4 @@ Accept-Language: pt
 ###
 
 
-DELETE http://localhost:8000/editora/6600d6783f1039cd1d612db9
+DELETE http://localhost:8000/editora/6600d76f3f1039cd1d612dcb

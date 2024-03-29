@@ -1,3 +1,4 @@
+import Erro404 from "../error/Erro404.js";
 import {autor} from "../models/Autores.js";
 
 class AutoresController {
@@ -34,9 +35,7 @@ class AutoresController {
       if(listaAutor !== null){
         return res.status(200).json(listaAutor);
       }else{
-        res
-          .status(404)
-          .json({ message: "Falha ao listar o autor" });
+        next(new Erro404("ID do autor não foi encontrado"));
       }
     }catch(error){
       next(error);
@@ -47,11 +46,17 @@ class AutoresController {
   static async atualizaAutor(req,res,next){
     try{
       const id = req.params.id;
-      await autor.findByIdAndUpdate(id, req.body);
 
-      return res.status(200).json({
-        message: "Autor atualizado"
-      });
+      if(await autor.findById(id) !== null){
+        await autor.findByIdAndUpdate(id, req.body);
+
+        return res.status(200).json({
+          message: "Autor atualizado"
+        });
+      }else{
+        next(new Erro404("ID do autor não foi encontrado"));
+      }
+
     }catch(error){
       next(error);
     }
@@ -61,11 +66,18 @@ class AutoresController {
   static async deletaAutores(req,res,next){
     try{
       const id = req.params.id;
-      await autor.findByIdAndDelete(id);
 
-      return res.status(204).json({
-        message: "Autor deletado com sucesso"
-      });
+      if(await autor.findById(id) !== null){
+        await autor.findByIdAndDelete(id);
+
+        return res.status(204).json({
+          message: "Autor deletado com sucesso"
+        });
+      }else{
+        next(new Erro404("ID do autor não foi encontrado"));
+      }
+
+
     }catch(error){
       next(error);
     }
