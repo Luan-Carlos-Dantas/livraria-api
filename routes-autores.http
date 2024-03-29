@@ -1,5 +1,4 @@
 GET http://localhost:8000
-
 ###
 
 GET http://localhost:8000/autores
@@ -11,16 +10,17 @@ Content-Type: application/json
 Accept-Language: pt
 
 {
-
+    "name": "",
+    "nacionality": "Brazilian"
 }
 ###
 
-GET http://localhost:8000/autores/6600c41e7d34d6e6ce254eez
+GET http://localhost:8000/autores/6600c4007d34d6e6ce254ee7
 
 
 ###
 
-PUT http://localhost:8000/autores/6600c4167d34d6e6ce254eeb
+PUT http://localhost:8000/autores/6600c4007d34d6e6ce254ee7
 Content-Type: application/json
 Accept-Language: pt
 
@@ -31,4 +31,4 @@ Accept-Language: pt
 
 ###
 
-DELETE http://localhost:8000/autores/6600c4167d34d6e6ce254eeb
+DELETE http://localhost:8000/autores/6600c40b7d34d6e6ce254ee9

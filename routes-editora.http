@@ -14,7 +14,7 @@ Accept-Language: pt
 #     "name": "",
 # }
 {
-  "name": "Record"
+  "name": ""
 }
 ###
 
@@ -28,7 +28,7 @@ GET http://localhost:8000/editora/busca?nome=Agi
 
 ###
 ###
-PUT http://localhost:8000/editora/6600d76f3f1039cd1d612dcb
+PUT http://localhost:8000/editora/6606178cbaac55667d0f6505
 Content-Type: application/json
 Accept-Language: pt
 
@@ -39,4 +39,4 @@ Accept-Language: pt
 ###
 
 
-DELETE http://localhost:8000/editora/6600d76f3f1039cd1d612dcb
+DELETE http://localhost:8000/editora/66061f15d396b829eb2d5bb3

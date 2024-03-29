@@ -1,5 +1,5 @@
+import { autor } from "../models/index.js";
 import Erro404 from "../error/Erro404.js";
-import {autor} from "../models/Autores.js";
 
 class AutoresController {
 

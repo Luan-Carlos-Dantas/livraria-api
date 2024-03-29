@@ -1,4 +1,4 @@
-import { editora} from "../models/Editora.js";
+import { editora} from "../models/index.js";
 import Erro404 from "../error/Erro404.js";
 class EditoraController{
   static async listaEditoras(req,res,next){
