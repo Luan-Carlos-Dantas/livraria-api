@@ -3,6 +3,31 @@ import { editora } from "../models/index.js";
 import {livro} from "../models/index.js";
 import Erro404 from "../error/Erro404.js";
 
+function processaBusca(params){
+  const {editora,titulo,autores,minPages,maxPages} = params;
+
+  const busca = {};
+
+  if(titulo) busca.title = {
+    $regex: titulo,
+    $options: "i"
+  };
+  if(editora) busca["editor.name"] = {
+    $regex: editora,
+    $options: "i"
+  };
+
+  if(autores) busca["author.name"] = {
+    $regex: autores,
+    $options: "i"
+  };
+
+  if(minPages || maxPages) busca.pages = {};
+  if(minPages) busca.pages.$gte = minPages;
+  if(maxPages) busca.pages.$lte = maxPages;
+
+  return busca;
+}
 class LivroController {
 
   static async listarLivros(req,res,next){
@@ -33,22 +58,16 @@ class LivroController {
 
   }
 
-  static async buscaLivros(req, res,next){
-    const editora = req.query.editora;
+  static async buscaLivrosPorFiltro(req, res,next){
+    const busca = processaBusca(req.query);
 
     try{
-      const listaLivroEncontrado = await livro.find({
-        editor: {
-          name: editora
-        }
-      });
-
-      console.log(listaLivroEncontrado);
+      const listaLivroEncontrado = await livro.find(busca);
 
       if(listaLivroEncontrado !== null){
         return res.status(200).json(listaLivroEncontrado);
       }else{
-        next(new Erro404("Editora não possui nenhum livro cadastrado"));
+        next(new Erro404("Não foi possível encontrar livros com os parametros informados"));
       }
     }catch(error){
       next(error);

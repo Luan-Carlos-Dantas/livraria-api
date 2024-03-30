@@ -31,7 +31,7 @@ GET http://localhost:8000/livros/6600b85727c192795fdf1bbd
 
 
 ###
-GET http://localhost:8000/livros/busca?editora=Caelum
+GET http://localhost:8000/livros/busca?autores=Luan
 
 ###
 
